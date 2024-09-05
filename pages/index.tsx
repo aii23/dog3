@@ -1,8 +1,12 @@
 import Image from 'next/image';
 import { Header } from '../components/header';
-import { my_mocked_dogs } from '../components/mock/mocked_data';
+import {
+  mocked_transactions,
+  my_mocked_dogs,
+} from '../components/mock/mocked_data';
 import DogCardExtended from '../components/extended_dog_card';
 import Footer from '../components/footer';
+import { TransactionHistory } from '../components/transaction_history';
 
 export default function Home() {
   return (
@@ -26,34 +30,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section>
-            <h2 className="text-2xl font-semibold mb-4">Transaction History</h2>
-            <table className="w-full text-left table-auto border-collapse">
-              <thead>
-                <tr className="bg-gray-800">
-                  <th className="p-2 border-b border-gray-700">Date</th>
-                  <th className="p-2 border-b border-gray-700">Type</th>
-                  <th className="p-2 border-b border-gray-700">Amount</th>
-                  <th className="p-2 border-b border-gray-700">Asset</th>
-                  <th className="p-2 border-b border-gray-700">Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="p-2 border-b border-gray-700">10/22/23</td>
-                  <td className="p-2 border-b border-gray-700">
-                    <button className="px-3 py-1 bg-blue-600 rounded-lg hover:bg-blue-500">
-                      Received
-                    </button>
-                  </td>
-                  <td className="p-2 border-b border-gray-700">0.1 ETH</td>
-                  <td className="p-2 border-b border-gray-700">Ethereum</td>
-                  <td className="p-2 border-b border-gray-700">Pupify #1</td>
-                </tr>
-                {/* Repeat similar rows for other transactions */}
-              </tbody>
-            </table>
-          </section>
+          <TransactionHistory transactions={mocked_transactions} />
         </main>
       </div>
       <Footer />
