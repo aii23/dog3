@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import { Header } from '../components/header';
+import { my_mocked_dogs } from '../components/mock/mocked_data';
+import DogCardExtended from '../components/extended_dog_card';
 
 export default function Home() {
   return (
@@ -14,16 +16,11 @@ export default function Home() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-4">My NFTs</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            <Image
-              src="/1.png"
-              alt="NFT Preview"
-              width={150}
-              height={150}
-              className="rounded-lg"
-            />
-            {/* Repeat the above line for all images */}
+          <h2 className="text-2xl font-semibold mb-4">My Dogs</h2>
+          <div className="flex flex-col gap-4">
+            {my_mocked_dogs.map((dog) => (
+              <DogCardExtended src={dog.src} name={dog.name} />
+            ))}
           </div>
         </section>
 

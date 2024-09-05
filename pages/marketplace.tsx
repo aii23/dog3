@@ -1,10 +1,8 @@
 import Image from 'next/image';
 import { Header } from '../components/header';
 import DogCard from '../components/dog_card';
-
-const dogs = [...Array(12)].map(() => {
-  return { src: '/dog1.png', name: 'g1' };
-});
+import { Dog } from '../components/interfaces/Dog';
+import { mocked_dogs } from '../components/mock/mocked_data';
 
 export default function Marketplace() {
   return (
@@ -36,7 +34,7 @@ export default function Marketplace() {
         <div className="p-8 flex justify-center">
           <div className="w-3/4">
             <div className={`grid grid-cols-5 gap-3`}>
-              {dogs.map((dog) => (
+              {mocked_dogs.map((dog) => (
                 <DogCard src={dog.src} name={dog.name} />
               ))}
             </div>
