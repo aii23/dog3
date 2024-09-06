@@ -36,7 +36,7 @@ export default function Marketplace() {
             <div className="w-3/4">
               <div className={`grid grid-cols-5 gap-3`}>
                 {mocked_dogs.map((dog) => (
-                  <DogCard src={dog.src} name={dog.name} />
+                  <DogCard dog={dog} />
                 ))}
               </div>
             </div>

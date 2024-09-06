@@ -25,7 +25,7 @@ export default function Home() {
             <h2 className="text-2xl font-semibold mb-4">My Dogs</h2>
             <div className="flex flex-col gap-4">
               {my_mocked_dogs.map((dog) => (
-                <DogCardExtended src={dog.src} name={dog.name} />
+                <DogCardExtended dog={dog} />
               ))}
             </div>
           </section>
