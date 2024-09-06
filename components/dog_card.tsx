@@ -52,18 +52,41 @@ export default function DogCard(args: { dog: Dog }) {
 
           {/* Back Side (Dog Info) */}
           <div
-            className="absolute w-full h-full bg-gray-800 rounded-lg flex items-center justify-center"
+            className="absolute w-full h-full bg-gray-800 rounded-lg flex justify-center"
             style={{
               backfaceVisibility: 'hidden',
               transform: 'rotateY(180deg)', // Rotate the back side by 180 degrees
             }}
           >
-            <div className="text-white p-4 text-center">
-              <h2 className="font-semibold text-xl">{dog.name}</h2>
-              <p className="mt-2 text-sm">
-                {/* More information about the dog */}
-                This is some additional information about {dog.name}.
-              </p>
+            <div className="flex flex-col text-white p-4 text-center h-full w-full">
+              <h2 className="font-bold text-2xl">{dog.name}</h2>
+              <div className="grid grid-cols-2 grid-rows-2 h-full gap-2 p-2">
+                <div className="border rounded border-gray-900">
+                  <div>
+                    {' '}
+                    <div className="text-xl font-bold">Id:</div> {dog.id}{' '}
+                  </div>
+                </div>
+                <div className="border rounded border-gray-900">
+                  <div>
+                    {' '}
+                    <div className="text-xl font-bold"> Age:</div> {dog.age}
+                  </div>
+                </div>
+                <div className="border rounded border-gray-900">
+                  <div>
+                    {' '}
+                    <div className="text-xl font-bold"> Breed: </div>{' '}
+                    {dog.breed}
+                  </div>
+                </div>
+                <div className="border rounded border-gray-900">
+                  <div>
+                    {' '}
+                    <div className="text-xl font-bold"> Sex: </div> {dog.sex}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
