@@ -14,9 +14,7 @@ export const Header = () => {
             <Link href="/marketplace"> Marketplace </Link>
           </li>
           <li>
-            <a href="#" className="hover:text-gray-300">
-              Lost & Found
-            </a>
+            <Link href="/lost_and_found"> Lost and Found </Link>
           </li>
         </ul>
         <div className="flex items-center space-x-4">

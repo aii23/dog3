@@ -6,6 +6,19 @@ export interface Dog {
   breed: string;
 }
 
+export interface LostDogInfo {
+  dog: Dog;
+  location: string;
+  time: string;
+}
+
+export interface FoundDogInfo {
+  dog: Dog;
+  location: string;
+  time: string;
+  foundBy: string;
+}
+
 export interface DogTransactionParams {
   date: string;
   type: string;
