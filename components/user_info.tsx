@@ -1,11 +1,19 @@
 import Image from 'next/image';
 import { User } from './interfaces/User';
+import { useState } from 'react';
+import { ethers } from 'ethers';
+import { useWallet } from './wallet_provider';
 
 export const UserInfo = (args: { user: User }) => {
   const { user } = args;
+
+  const { userAddress } = useWallet();
+
   return (
     <div className="flex flex-col h-1/5">
-      <h1 className="text-3xl font-semibold">My Account: ${user.address}</h1>
+      <h1 className="text-3xl font-semibold">
+        My Account: {userAddress ? userAddress : 'Connect wallet'}
+      </h1>
       <div className="flex flex-col sm:flex-row mt-4 items-start">
         <div className="relative w-44 h-44 flex-0">
           <Image
