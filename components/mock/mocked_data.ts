@@ -5,6 +5,13 @@ import {
   LostDogInfo,
   Vaccination,
 } from '../interfaces/Dog';
+import { User } from '../interfaces/User';
+
+export const my_mocked_account: User = {
+  address: '0x123...',
+  descriptions: 'Some random description that will tell more about myself',
+  src: '/me.png',
+};
 
 export const my_mocked_dogs: Dog[] = [...Array(3)].map(() => {
   const id = Math.random().toString(36).substring(7); // Generate a random ID
