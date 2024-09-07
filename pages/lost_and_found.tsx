@@ -7,20 +7,23 @@ import {
 import { Header } from '../components/header';
 import Footer from '../components/footer';
 import { LostDogInfo, FoundDogInfo } from '../components/interfaces/Dog';
+import Link from 'next/link';
 
 const LostDogsComponent = (args: { lostDogs: LostDogInfo[] }) => {
   return (
     <ul className="space-y-4">
       {args.lostDogs.map((dogInfo, index) => (
         <li key={index} className="flex items-center space-x-4">
-          <div className="w-24 h-16 relative rounded-lg overflow-hidden">
-            <Image
-              src={dogInfo.dog.src}
-              alt={`${dogInfo.dog.age} - ${dogInfo.dog.breed}`}
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
+          <Link href={`/dogs/${dogInfo.dog.id}`}>
+            <div className="w-24 h-16 relative rounded-lg overflow-hidden">
+              <Image
+                src={dogInfo.dog.src}
+                alt={`${dogInfo.dog.age} - ${dogInfo.dog.breed}`}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+          </Link>
           <div>
             <h2 className="font-semibold">
               {`${dogInfo.dog.age} - ${dogInfo.dog.breed}`}
@@ -42,14 +45,16 @@ const FoundDogsComponent = (args: { foundDogs: FoundDogInfo[] }) => {
     <ul className="space-y-4">
       {args.foundDogs.map((dogInfo, index) => (
         <li key={index} className="flex items-center space-x-4">
-          <div className="w-24 h-16 relative rounded-lg overflow-hidden">
-            <Image
-              src={dogInfo.dog.src}
-              alt={`${dogInfo.dog.age} - ${dogInfo.dog.breed}`}
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
+          <Link href={`/dogs/${dogInfo.dog.id}`}>
+            <div className="w-24 h-16 relative rounded-lg overflow-hidden">
+              <Image
+                src={dogInfo.dog.src}
+                alt={`${dogInfo.dog.age} - ${dogInfo.dog.breed}`}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+          </Link>
           <div>
             <h2 className="font-semibold">
               {`${dogInfo.dog.age} - ${dogInfo.dog.breed}`}
