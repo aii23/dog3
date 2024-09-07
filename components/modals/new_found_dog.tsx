@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from './modal';
 
-export default function NewLostDogModal({
+export default function NewFoundDogModal({
   title,
   isOpen,
   setIsOpen,
@@ -14,19 +14,27 @@ export default function NewLostDogModal({
   children: React.JSX.Element;
   apply: () => void;
 }) {
-  const [place, setPlace] = useState<string>('');
+  const [id, setId] = useState<string>('');
+  const [location, setLocation] = useState<string>('');
   const [time, setTime] = useState<string>('');
-  const [reward, setReward] = useState<string>('');
-
   return (
     <Modal title={title} isOpen={isOpen} setIsOpen={setIsOpen} apply={apply}>
       <div className="grid grid-cols-2 gap-3">
         <label>
-          Place:{' '}
+          Id:{' '}
           <input
             className="text-black"
-            value={place}
-            onChange={(e) => setPlace(e.target.value)}
+            value={id}
+            onChange={(e) => setId(e.target.value)}
+          />
+        </label>
+
+        <label>
+          Location:{' '}
+          <input
+            className="text-black"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
           />
         </label>
 
@@ -36,15 +44,6 @@ export default function NewLostDogModal({
             className="text-black"
             value={time}
             onChange={(e) => setTime(e.target.value)}
-          />
-        </label>
-
-        <label>
-          Reward:{' '}
-          <input
-            className="text-black"
-            value={reward}
-            onChange={(e) => setReward(e.target.value)}
           />
         </label>
       </div>

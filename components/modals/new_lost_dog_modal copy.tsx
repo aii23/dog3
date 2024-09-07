@@ -14,37 +14,46 @@ export default function NewLostDogModal({
   children: React.JSX.Element;
   apply: () => void;
 }) {
-  const [place, setPlace] = useState<string>('');
-  const [time, setTime] = useState<string>('');
-  const [reward, setReward] = useState<string>('');
-
+  const [name, setName] = useState<string>('');
+  const [age, setAge] = useState<string>('');
+  const [breed, setBreed] = useState<string>('');
+  const [color, setColor] = useState<string>('');
   return (
     <Modal title={title} isOpen={isOpen} setIsOpen={setIsOpen} apply={apply}>
       <div className="grid grid-cols-2 gap-3">
         <label>
-          Place:{' '}
+          Name:{' '}
           <input
             className="text-black"
-            value={place}
-            onChange={(e) => setPlace(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </label>
 
         <label>
-          Time:{' '}
+          Age:{' '}
           <input
             className="text-black"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
           />
         </label>
 
         <label>
-          Reward:{' '}
+          Breed:{' '}
           <input
             className="text-black"
-            value={reward}
-            onChange={(e) => setReward(e.target.value)}
+            value={breed}
+            onChange={(e) => setBreed(e.target.value)}
+          />
+        </label>
+
+        <label>
+          Color:{' '}
+          <input
+            className="text-black"
+            value={color}
+            onChange={(e) => setColor(e.target.value)}
           />
         </label>
       </div>

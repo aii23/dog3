@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from './modal';
 
-export default function NewLostDogModal({
+export default function AddVacinationModal({
   title,
   isOpen,
   setIsOpen,
@@ -14,37 +14,37 @@ export default function NewLostDogModal({
   children: React.JSX.Element;
   apply: () => void;
 }) {
-  const [place, setPlace] = useState<string>('');
-  const [time, setTime] = useState<string>('');
-  const [reward, setReward] = useState<string>('');
+  const [vacinationCenter, setVacinationCenter] = useState<string>('');
+  const [doctorId, setDoctorId] = useState<string>('');
+  const [vaccine, setVaccine] = useState<string>('');
 
   return (
     <Modal title={title} isOpen={isOpen} setIsOpen={setIsOpen} apply={apply}>
       <div className="grid grid-cols-2 gap-3">
         <label>
-          Place:{' '}
+          Vacination Center:{' '}
           <input
             className="text-black"
-            value={place}
-            onChange={(e) => setPlace(e.target.value)}
+            value={vacinationCenter}
+            onChange={(e) => setVacinationCenter(e.target.value)}
           />
         </label>
 
         <label>
-          Time:{' '}
+          Docter Id:{' '}
           <input
             className="text-black"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
+            value={doctorId}
+            onChange={(e) => setDoctorId(e.target.value)}
           />
         </label>
 
         <label>
-          Reward:{' '}
+          Vaccine :{' '}
           <input
             className="text-black"
-            value={reward}
-            onChange={(e) => setReward(e.target.value)}
+            value={vaccine}
+            onChange={(e) => setVaccine(e.target.value)}
           />
         </label>
       </div>
