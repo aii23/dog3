@@ -5,20 +5,24 @@ export default function NewFoundDogModal({
   title,
   isOpen,
   setIsOpen,
-  children,
-  apply,
 }: {
   title: string;
   isOpen: boolean;
   setIsOpen: (v: boolean) => void;
-  children: React.JSX.Element;
-  apply: () => void;
 }) {
   const [id, setId] = useState<string>('');
   const [location, setLocation] = useState<string>('');
   const [time, setTime] = useState<string>('');
+
+  const publishFoundDog = () => {};
+
   return (
-    <Modal title={title} isOpen={isOpen} setIsOpen={setIsOpen} apply={apply}>
+    <Modal
+      title={title}
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      apply={publishFoundDog}
+    >
       <div className="grid grid-cols-2 gap-3">
         <label>
           Id:{' '}

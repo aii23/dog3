@@ -5,14 +5,10 @@ export default function NewDogModal({
   title,
   isOpen,
   setIsOpen,
-  children,
-  apply,
 }: {
   title: string;
   isOpen: boolean;
   setIsOpen: (v: boolean) => void;
-  children: React.JSX.Element;
-  apply: () => void;
 }) {
   const [id, setId] = useState<string>('');
   const [name, setName] = useState<string>('');
@@ -20,8 +16,16 @@ export default function NewDogModal({
   const [breed, setBreed] = useState<string>('');
   const [color, setColor] = useState<string>('');
   const [src, setSrc] = useState<string>('');
+
+  const createNewDog = () => {};
+
   return (
-    <Modal title={title} isOpen={isOpen} setIsOpen={setIsOpen} apply={apply}>
+    <Modal
+      title={title}
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      apply={createNewDog}
+    >
       <div className="grid grid-cols-2 gap-3">
         <label>
           Id:{' '}
@@ -72,7 +76,7 @@ export default function NewDogModal({
           Src:{' '}
           <input
             className="text-black"
-            value={color}
+            value={src}
             onChange={(e) => setSrc(e.target.value)}
           />
         </label>

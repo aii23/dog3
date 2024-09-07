@@ -5,21 +5,24 @@ export default function NewLostDogModal({
   title,
   isOpen,
   setIsOpen,
-  children,
-  apply,
 }: {
   title: string;
   isOpen: boolean;
   setIsOpen: (v: boolean) => void;
-  children: React.JSX.Element;
-  apply: () => void;
 }) {
   const [place, setPlace] = useState<string>('');
   const [time, setTime] = useState<string>('');
   const [reward, setReward] = useState<string>('');
 
+  const createNewLostDog = () => {};
+
   return (
-    <Modal title={title} isOpen={isOpen} setIsOpen={setIsOpen} apply={apply}>
+    <Modal
+      title={title}
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      apply={createNewLostDog}
+    >
       <div className="grid grid-cols-2 gap-3">
         <label>
           Place:{' '}

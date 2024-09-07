@@ -6,9 +6,12 @@ import {
 } from '../../components/mock/mocked_data';
 import { Header } from '../../components/header';
 import Footer from '../../components/footer';
+import { useState } from 'react';
+import AddVacinationModal from '../../components/modals/add_vacination_modal';
 
 const DogDetails = () => {
   const router = useRouter();
+  const [isVacineModalOpen, setVacineModalOpen] = useState(false);
 
   const dog = all_mocked_dogs.find((dog) => dog.id === router.query.id);
   const dogVaccination = mocked_dogs_vaccinations.filter(
@@ -54,7 +57,18 @@ const DogDetails = () => {
           </div>
 
           {/* Bottom: Vaccination Info */}
-          <h2 className="text-xl font-semibold mb-4">Vaccination Info</h2>
+          <div className="flex">
+            <div className="flex text-xl font-semibold justify-center items-center">
+              Vaccination Info
+            </div>
+            <button
+              className="bg-blue-500 p-2 m-2 rounded"
+              onClick={() => setVacineModalOpen(true)}
+            >
+              {' '}
+              Add vacination info{' '}
+            </button>
+          </div>
           <table className="w-full text-left table-auto border-collapse">
             <thead>
               <tr className="bg-gray-800">
@@ -82,6 +96,12 @@ const DogDetails = () => {
         </div>
       )}
       <Footer />
+
+      <AddVacinationModal
+        title="Fill vacination info"
+        isOpen={isVacineModalOpen}
+        setIsOpen={setVacineModalOpen}
+      />
     </>
   );
 };

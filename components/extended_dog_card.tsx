@@ -5,6 +5,7 @@ import { Dog } from './interfaces/Dog';
 import { useState } from 'react';
 import Modal from './modals/modal';
 import NewLostDogModal from './modals/new_lost_dog_modal';
+import NewSellOrderModal from './modals/new_sell_order copy';
 
 type DogCardProps = {
   dog: Dog;
@@ -12,11 +13,8 @@ type DogCardProps = {
 };
 
 export default function DogCardExtended({ dog, isBreeder }: DogCardProps) {
+  const [sellModalOpen, setSellModalOpen] = useState<boolean>(false);
   const [lostDogModalOpen, setLostDogModalOpen] = useState<boolean>(false);
-
-  const onLostDogClick = () => {
-    setLostDogModalOpen(true);
-  };
 
   return (
     <>
@@ -44,25 +42,33 @@ export default function DogCardExtended({ dog, isBreeder }: DogCardProps) {
           <div>
             <button
               className="p-2 m-2 bg-red-500 rounded"
-              onClick={onLostDogClick}
+              onClick={() => setLostDogModalOpen(true)}
             >
               {' '}
               Claim lost{' '}
             </button>
             {isBreeder && (
-              <button className="p-2 m-2 bg-blue-500 rounded"> Sell </button>
+              <button
+                className="p-2 m-2 bg-blue-500 rounded"
+                onClick={() => setSellModalOpen(true)}
+              >
+                {' '}
+                Sell{' '}
+              </button>
             )}
           </div>
         </div>
       </div>
       <NewLostDogModal
-        title="Some big tile"
+        title="Fill information about missing dog"
         isOpen={lostDogModalOpen}
         setIsOpen={setLostDogModalOpen}
-        apply={() => {}}
-      >
-        <div></div>
-      </NewLostDogModal>
+      />
+      <NewSellOrderModal
+        title="Fill sell order information"
+        isOpen={sellModalOpen}
+        setIsOpen={setSellModalOpen}
+      />
     </>
   );
 }

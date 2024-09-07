@@ -8,6 +8,7 @@ import { Header } from '../components/header';
 import Footer from '../components/footer';
 import { LostDogInfo, FoundDogInfo } from '../components/interfaces/Dog';
 import Link from 'next/link';
+import NewFoundDogModal from '../components/modals/new_found_dog';
 
 const LostDogsComponent = (args: { lostDogs: LostDogInfo[] }) => {
   return (
@@ -73,6 +74,7 @@ const FoundDogsComponent = (args: { foundDogs: FoundDogInfo[] }) => {
 
 const LostAndFoundDogs = () => {
   const [activeTab, setActiveTab] = useState<'lost' | 'found'>('lost');
+  const [isFoundModalOpen, setFoundModalOpen] = useState(false);
 
   return (
     <>
@@ -89,7 +91,13 @@ const LostAndFoundDogs = () => {
               className="bg-gray-800 text-white rounded p-2 w-64"
             />
           </div>
-          <button className="bg-blue-600 p-2 rounded text-white">Post</button>
+          <button
+            className="bg-blue-600 p-2 rounded text-white"
+            onClick={() => setFoundModalOpen(true)}
+          >
+            {' '}
+            Found dog{' '}
+          </button>
         </header>
 
         <h1 className="text-2xl font-bold mb-6">Lost and Found Dogs</h1>
@@ -127,6 +135,11 @@ const LostAndFoundDogs = () => {
         )}
       </div>
       <Footer />
+      <NewFoundDogModal
+        title="Fill found dog information"
+        isOpen={isFoundModalOpen}
+        setIsOpen={setFoundModalOpen}
+      />
     </>
   );
 };

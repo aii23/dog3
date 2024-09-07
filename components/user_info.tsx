@@ -4,8 +4,12 @@ import { useState } from 'react';
 import { ethers } from 'ethers';
 import { useWallet } from './wallet_provider';
 
-export const UserInfo = (args: { user: User }) => {
-  const { user } = args;
+export const UserInfo = (args: {
+  user: User;
+  isBreeder: boolean;
+  setIsBreeder: (v: boolean) => void;
+}) => {
+  const { user, isBreeder, setIsBreeder } = args;
 
   const { userAddress } = useWallet();
 
@@ -27,6 +31,14 @@ export const UserInfo = (args: { user: User }) => {
         <div className="flex-0 sm:ml-4 mt-4 sm:mt-0 flex-1">
           <h1 className="text-xl font-semibold">Description</h1>
           <div>{user.descriptions}</div>
+          <label>
+            <input
+              type="checkbox"
+              checked={isBreeder}
+              onChange={() => setIsBreeder(!isBreeder)}
+            />{' '}
+            Is breeder
+          </label>
         </div>
       </div>
     </div>

@@ -5,21 +5,25 @@ export default function NewSellOrderModal({
   title,
   isOpen,
   setIsOpen,
-  children,
-  apply,
 }: {
   title: string;
   isOpen: boolean;
   setIsOpen: (v: boolean) => void;
-  children: React.JSX.Element;
-  apply: () => void;
 }) {
   const [price, setPrice] = useState<string>('');
+
+  const createSellOrder = () => {};
+
   return (
-    <Modal title={title} isOpen={isOpen} setIsOpen={setIsOpen} apply={apply}>
+    <Modal
+      title={title}
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      apply={createSellOrder}
+    >
       <div className="grid grid-cols-2 gap-3">
         <label>
-          Name:{' '}
+          Price:{' '}
           <input
             className="text-black"
             value={price}

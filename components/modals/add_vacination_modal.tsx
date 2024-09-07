@@ -5,21 +5,24 @@ export default function AddVacinationModal({
   title,
   isOpen,
   setIsOpen,
-  children,
-  apply,
 }: {
   title: string;
   isOpen: boolean;
   setIsOpen: (v: boolean) => void;
-  children: React.JSX.Element;
-  apply: () => void;
 }) {
   const [vacinationCenter, setVacinationCenter] = useState<string>('');
   const [doctorId, setDoctorId] = useState<string>('');
   const [vaccine, setVaccine] = useState<string>('');
 
+  const addVacination = () => {};
+
   return (
-    <Modal title={title} isOpen={isOpen} setIsOpen={setIsOpen} apply={apply}>
+    <Modal
+      title={title}
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      apply={addVacination}
+    >
       <div className="grid grid-cols-2 gap-3">
         <label>
           Vacination Center:{' '}
@@ -31,7 +34,7 @@ export default function AddVacinationModal({
         </label>
 
         <label>
-          Docter Id:{' '}
+          Doctor Id:{' '}
           <input
             className="text-black"
             value={doctorId}
