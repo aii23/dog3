@@ -13,26 +13,24 @@ export const my_mocked_account: User = {
   src: '/me.png',
 };
 
-export const my_mocked_dogs: Dog[] = [...Array(3)].map(() => {
-  const id = Math.random().toString(36).substring(7); // Generate a random ID
+export const my_mocked_dogs: Dog[] = [...Array(3)].map((_, i) => {
   return {
-    id, // Add the ID property
+    id: '90' + i, // Add the ID property
     src: '/dog1.png',
     name: 'g1',
-    age: '' + Math.floor(Math.random() * 10) + 1,
+    age: '' + i,
     breed: 'Unknown',
     color: 'Unknown',
     sex: 'male',
   };
 });
 
-export const mocked_dogs: Dog[] = [...Array(12)].map(() => {
-  const id = Math.random().toString(36).substring(7); // Generate a random ID
+export const mocked_dogs: Dog[] = [...Array(12)].map((_, i) => {
   return {
-    id, // Add the ID property
+    id: '70' + i, // Add the ID property
     src: '/dog1.png',
     name: 'g1',
-    age: '' + Math.floor(Math.random() * 10) + 1,
+    age: '3',
     breed: 'Unknown',
     color: 'Unknown',
     sex: 'male',

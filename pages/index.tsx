@@ -9,8 +9,11 @@ import DogCardExtended from '../components/extended_dog_card';
 import Footer from '../components/footer';
 import { TransactionHistory } from '../components/transaction_history';
 import { UserInfo } from '../components/user_info';
+import { useState } from 'react';
 
 export default function Home() {
+  const [isBreeder, setIsBreeder] = useState<boolean>(false);
+
   return (
     <>
       <Header />
@@ -21,7 +24,7 @@ export default function Home() {
             <h2 className="text-2xl font-semibold mb-4">My Dogs</h2>
             <div className="flex flex-col gap-4">
               {my_mocked_dogs.map((dog) => (
-                <DogCardExtended dog={dog} />
+                <DogCardExtended isBreeder={isBreeder} dog={dog} key={dog.id} />
               ))}
             </div>
           </section>
