@@ -9,6 +9,7 @@ import Footer from '../components/footer';
 import { LostDogInfo, FoundDogInfo } from '../components/interfaces/Dog';
 import Link from 'next/link';
 import NewFoundDogModal from '../components/modals/new_found_dog';
+import { Button } from '../components/elements/button';
 
 const LostDogsComponent = (args: { lostDogs: LostDogInfo[] }) => {
   return (
@@ -91,13 +92,7 @@ const LostAndFoundDogs = () => {
               className="bg-gray-800 text-white rounded p-2 w-64"
             />
           </div>
-          <button
-            className="bg-blue-600 p-2 rounded text-white"
-            onClick={() => setFoundModalOpen(true)}
-          >
-            {' '}
-            Found dog{' '}
-          </button>
+          <Button name="Found dog" onClick={() => setFoundModalOpen(true)} />
         </header>
 
         <h1 className="text-2xl font-bold mb-6">Lost and Found Dogs</h1>

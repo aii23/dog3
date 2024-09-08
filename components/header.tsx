@@ -5,6 +5,7 @@ import React from 'react';
 import { useWallet } from './wallet_provider';
 import Jazzicon from 'react-jazzicon';
 import { contractABI, contractAddress } from './constants';
+import { ConnectMetamaskButton } from './elements/metamaskConnectButton';
 
 export const Header = () => {
   const { userAddress, setUserAddress, coinSeed, setCoinSeed, setContract } =
@@ -66,14 +67,7 @@ export const Header = () => {
             {/* <div className="w-8 h-8 rounded-full bg-gray-700"></div> */}
           </div>
         ) : (
-          <div className="flex items-center space-x-4">
-            <button
-              className="px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-500"
-              onClick={connectWallet}
-            >
-              Connect Wallet
-            </button>
-          </div>
+          <ConnectMetamaskButton connectWallet={connectWallet} />
         )}
       </nav>{' '}
     </header>

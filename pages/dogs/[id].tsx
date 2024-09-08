@@ -8,6 +8,7 @@ import { Header } from '../../components/header';
 import Footer from '../../components/footer';
 import { useState } from 'react';
 import AddVacinationModal from '../../components/modals/add_vacination_modal';
+import { Button } from '../../components/elements/button';
 
 const DogDetails = () => {
   const router = useRouter();
@@ -57,17 +58,14 @@ const DogDetails = () => {
           </div>
 
           {/* Bottom: Vaccination Info */}
-          <div className="flex">
-            <div className="flex text-xl font-semibold justify-center items-center">
+          <div className="flex m-2">
+            <div className="flex text-xl font-semibold justify-center items-center mr-2">
               Vaccination Info
             </div>
-            <button
-              className="bg-blue-500 p-2 m-2 rounded"
+            <Button
+              name="Add vacination info"
               onClick={() => setVacineModalOpen(true)}
-            >
-              {' '}
-              Add vacination info{' '}
-            </button>
+            />
           </div>
           <table className="w-full text-left table-auto border-collapse">
             <thead>

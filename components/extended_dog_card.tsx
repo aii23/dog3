@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Modal from './modals/modal';
 import NewLostDogModal from './modals/new_lost_dog_modal';
 import NewSellOrderModal from './modals/new_sell_order copy';
+import { Button } from './elements/button';
 
 type DogCardProps = {
   dog: Dog;
@@ -40,21 +41,13 @@ export default function DogCardExtended({ dog, isBreeder }: DogCardProps) {
           <p className="text-gray-400 text-left">Sex: {dog.sex}</p>
 
           <div>
-            <button
-              className="p-2 m-2 bg-red-500 rounded"
+            <Button
               onClick={() => setLostDogModalOpen(true)}
-            >
-              {' '}
-              Claim lost{' '}
-            </button>
+              name="Claim lost"
+              color="red"
+            />
             {isBreeder && (
-              <button
-                className="p-2 m-2 bg-blue-500 rounded"
-                onClick={() => setSellModalOpen(true)}
-              >
-                {' '}
-                Sell{' '}
-              </button>
+              <Button name="Sell" onClick={() => setSellModalOpen(true)} />
             )}
           </div>
         </div>

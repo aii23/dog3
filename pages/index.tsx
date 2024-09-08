@@ -11,6 +11,7 @@ import { TransactionHistory } from '../components/transaction_history';
 import { UserInfo } from '../components/user_info';
 import { useState } from 'react';
 import NewDogModal from '../components/modals/new_dog_modal';
+import { Button } from '../components/elements/button';
 
 export default function Home() {
   const [isNewDogModalOpen, setIsNewDogModalOpen] = useState<boolean>(false);
@@ -29,13 +30,10 @@ export default function Home() {
           <section>
             <div className="flex">
               <h2 className="flex-1 text-2xl font-semibold mb-4">My Dogs</h2>
-              <button
-                className="p-2 bg-blue-500 rounded m-2"
+              <Button
                 onClick={() => setIsNewDogModalOpen(true)}
-              >
-                {' '}
-                Add new dog{' '}
-              </button>
+                name="Add new dog"
+              />
             </div>
             <div className="flex flex-col gap-4">
               {my_mocked_dogs.map((dog) => (
