@@ -26,32 +26,32 @@ const DogDetails = () => {
         'No dog found'
       ) : (
         <div className="min-h-screen bg-gray-900 text-white p-6">
-          <h1 className="text-2xl font-bold mb-6 text-center">{dog.name}</h1>
-
-          <div className="flex flex-col lg:flex-row bg-gray-800 rounded-lg p-6">
+          <div className="flex flex-col lg:flex-row bg-gray-800 rounded-lg p-6 shadow-lg">
             {/* Left: Dog Image */}
-            <div className="lg:w-1/2">
-              <div className="w-full h-96 relative rounded-lg overflow-hidden">
+            <div className="lg:w-1/3">
+              <div className="w-full h-72 relative rounded-lg overflow-hidden">
                 <Image
                   src={dog.src}
                   alt={dog.name}
                   layout="fill"
-                  objectFit="contain" // Changed from "cover" to "contain"
+                  objectFit="contain"
+                  className="rounded-lg"
                 />
               </div>
             </div>
 
             {/* Right: Dog Properties */}
-            <div className="lg:w-1/2 lg:pl-6 mt-6 lg:mt-0">
-              <ul className="space-y-4">
+            <div className="lg:w-2/3 lg:pl-6 mt-4 lg:mt-0">
+              <h1 className="text-3xl font-bold mb-4 text-white">{dog.name}</h1>
+              <ul className="space-y-2 text-gray-400">
                 <li>
-                  <strong>Breed:</strong> {dog.breed}
+                  <strong className="text-white">Breed:</strong> {dog.breed}
                 </li>
                 <li>
-                  <strong>Age:</strong> {dog.age}
+                  <strong className="text-white">Age:</strong> {dog.age}
                 </li>
                 <li>
-                  <strong>Gender:</strong> {dog.sex}
+                  <strong className="text-white">Gender:</strong> {dog.sex}
                 </li>
               </ul>
             </div>

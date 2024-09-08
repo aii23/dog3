@@ -45,8 +45,8 @@ export default function SellDogCard(args: { dog: Dog; price: number }) {
               objectFit="cover"
               className="rounded-lg"
             />
-            <h2 className="absolute bottom-0 left-0 w-full text-white text-left pl-3 py-2 font-semibold bg-gradient-to-t from-black/60 to-transparent">
-              {dog.name}
+            <h2 className="absolute bottom-0 text-xl left-0 w-full text-white text-left pl-3 py-2 font-semibold bg-gradient-to-t from-black/60 to-transparent">
+              {dog.name} - ${price} ETH
             </h2>
           </div>
 

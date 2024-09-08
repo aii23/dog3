@@ -19,39 +19,48 @@ export default function DogCardExtended({ dog, isBreeder }: DogCardProps) {
 
   return (
     <>
-      <div className="bg-gray-800 rounded-lg flex h-80 w-full">
+      <div className="bg-gray-800 rounded-lg flex h-54 w-full shadow-lg overflow-hidden">
         {/* Image container */}
-        <div className="h-full aspect-square relative">
+        <div className="h-full w-1/3 relative">
           <Link href={`/dogs/${dog.id}`}>
             <Image
               src={dog.src}
               alt={dog.name}
               layout="fill"
-              objectFit="cover"
-              className="rounded-l-lg" // Only round the left corners of the image
+              objectFit="contain"
+              className="rounded-l-lg"
             />
           </Link>
         </div>
 
         {/* Content on the right */}
-        <div className="flex flex-col justify-center pl-4 w-full">
-          <h2 className="text-white text-left font-semibold">{dog.name}</h2>
-          <p className="text-gray-400 text-left">Age: {dog.age}</p>
-          <p className="text-gray-400 text-left">Breed: {dog.breed}</p>
-          <p className="text-gray-400 text-left">Sex: {dog.sex}</p>
-
+        <div className="flex flex-col justify-between p-4 w-2/3">
           <div>
+            <h2 className="text-white text-left text-2xl font-bold">
+              {dog.name}
+            </h2>
+            <p className="text-gray-400 text-left mt-2">Age: {dog.age}</p>
+            <p className="text-gray-400 text-left mt-1">Breed: {dog.breed}</p>
+            <p className="text-gray-400 text-left mt-1">Sex: {dog.sex}</p>
+          </div>
+
+          <div className="flex mt-4">
             <Button
               onClick={() => setLostDogModalOpen(true)}
-              name="Claim lost"
+              name="Claim Lost"
               color="red"
             />
             {isBreeder && (
-              <Button name="Sell" onClick={() => setSellModalOpen(true)} />
+              <Button
+                name="Sell"
+                onClick={() => setSellModalOpen(true)}
+                color="blue"
+              />
             )}
           </div>
         </div>
       </div>
+
       <NewLostDogModal
         title="Fill information about missing dog"
         isOpen={lostDogModalOpen}

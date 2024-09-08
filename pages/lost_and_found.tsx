@@ -15,9 +15,12 @@ const LostDogsComponent = (args: { lostDogs: LostDogInfo[] }) => {
   return (
     <ul className="space-y-4">
       {args.lostDogs.map((dogInfo, index) => (
-        <li key={index} className="flex items-center space-x-4">
+        <li
+          key={index}
+          className="flex items-center space-x-4 border border-gray-800 rounded"
+        >
           <Link href={`/dogs/${dogInfo.dog.id}`}>
-            <div className="w-24 h-16 relative rounded-lg overflow-hidden">
+            <div className="w-48 h-32 relative rounded-lg overflow-hidden">
               <Image
                 src={dogInfo.dog.src}
                 alt={`${dogInfo.dog.age} - ${dogInfo.dog.breed}`}
@@ -26,14 +29,14 @@ const LostDogsComponent = (args: { lostDogs: LostDogInfo[] }) => {
               />
             </div>
           </Link>
-          <div>
+          <div className="flex-1">
             <h2 className="font-semibold">
               {`${dogInfo.dog.age} - ${dogInfo.dog.breed}`}
             </h2>
             <p className="text-gray-400">{dogInfo.time}</p>
             <p className="text-gray-400">{dogInfo.location}</p>
           </div>
-          <div className="ml-auto">
+          <div className="flex-0 ml-auto">
             <span className="text-xl">📍</span>
           </div>
         </li>
@@ -46,9 +49,12 @@ const FoundDogsComponent = (args: { foundDogs: FoundDogInfo[] }) => {
   return (
     <ul className="space-y-4">
       {args.foundDogs.map((dogInfo, index) => (
-        <li key={index} className="flex items-center space-x-4">
+        <li
+          key={index}
+          className="flex items-center space-x-4 border border-gray-800 rounded"
+        >
           <Link href={`/dogs/${dogInfo.dog.id}`}>
-            <div className="w-24 h-16 relative rounded-lg overflow-hidden">
+            <div className="w-48 h-32 relative rounded-lg overflow-hidden">
               <Image
                 src={dogInfo.dog.src}
                 alt={`${dogInfo.dog.age} - ${dogInfo.dog.breed}`}
@@ -57,14 +63,14 @@ const FoundDogsComponent = (args: { foundDogs: FoundDogInfo[] }) => {
               />
             </div>
           </Link>
-          <div>
+          <div className="flex-1">
             <h2 className="font-semibold">
               {`${dogInfo.dog.age} - ${dogInfo.dog.breed}`}
             </h2>
             <p className="text-gray-400">{dogInfo.time}</p>
             <p className="text-gray-400">{dogInfo.location}</p>
           </div>
-          <div className="ml-auto">
+          <div className="ml-auto flex-0">
             <span className="text-xl">📍</span>
           </div>
         </li>
@@ -123,11 +129,15 @@ const LostAndFoundDogs = () => {
           </div>
         </div>
 
-        {activeTab == 'lost' ? (
-          <LostDogsComponent lostDogs={mocked_lost_dogs} />
-        ) : (
-          <FoundDogsComponent foundDogs={mocked_found_dogs} />
-        )}
+        <div className="flex justify-center">
+          <div className="w-3/4">
+            {activeTab == 'lost' ? (
+              <LostDogsComponent lostDogs={mocked_lost_dogs} />
+            ) : (
+              <FoundDogsComponent foundDogs={mocked_found_dogs} />
+            )}
+          </div>
+        </div>
       </div>
       <Footer />
       <NewFoundDogModal

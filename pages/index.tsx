@@ -35,9 +35,9 @@ export default function Home() {
                 name="Add new dog"
               />
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {my_mocked_dogs.map((dog) => (
-                <DogCardExtended isBreeder={isBreeder} dog={dog} key={dog.id} />
+                <DogCardExtended key={dog.id} dog={dog} isBreeder={isBreeder} />
               ))}
             </div>
           </section>
