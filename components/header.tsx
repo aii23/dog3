@@ -3,9 +3,11 @@ import Link from 'next/link';
 import React from 'react';
 import { useWallet } from './wallet_provider';
 import Jazzicon from 'react-jazzicon';
+import { contractABI, contractAddress } from './constants';
 
 export const Header = () => {
-  const { userAddress, setUserAddress, coinSeed, setCoinSeed } = useWallet();
+  const { userAddress, setUserAddress, coinSeed, setCoinSeed, setContract } =
+    useWallet();
 
   // Function to connect to MetaMask
   const connectWallet = async () => {
@@ -24,7 +26,9 @@ export const Header = () => {
 
         // Optional: you can create an ethers provider to interact with the blockchain
         const provider = new ethers.BrowserProvider(window.ethereum);
-        const signer = provider.getSigner();
+        const signer = await provider.getSigner();
+
+        setContract(new ethers.Contract(contractAddress, contractABI, signer));
         console.log('Signer:', signer);
       } catch (err) {
         console.error('User denied account access or other error:', err);

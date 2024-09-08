@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Modal from './modal';
+import { useWallet } from '../wallet_provider';
+import { randomInt } from 'crypto';
 
 export default function NewDogModal({
   title,
@@ -13,11 +15,42 @@ export default function NewDogModal({
   const [id, setId] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [age, setAge] = useState<string>('');
+  const [sex, setSex] = useState<string>('');
   const [breed, setBreed] = useState<string>('');
   const [color, setColor] = useState<string>('');
   const [src, setSrc] = useState<string>('');
+  const { contract } = useWallet();
 
-  const createNewDog = () => {};
+  const createNewDog = async () => {
+    if (!contract) {
+      console.log('Connect wallet');
+      return;
+    }
+
+    await contract.regDoge(
+      id,
+      {
+        name,
+        species: 'dog',
+        breed,
+        sex,
+        country: 'Some',
+        region: 'Some',
+        city: 'Some',
+        addr: 'Some',
+        tatoo: 'N/A',
+        color,
+        photo: '/dog1.png',
+        postalCode: 'Some',
+        birthday: 123,
+      },
+      {
+        email: 'Some@gmail.com',
+        cellPhone: '+Some',
+        otherPhone: '+Some',
+      }
+    );
+  };
 
   return (
     <Modal
