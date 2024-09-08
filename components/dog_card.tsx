@@ -3,8 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Dog } from './interfaces/Dog';
 
-export default function DogCard(args: { dog: Dog }) {
-  const { dog } = args;
+export default function SellDogCard(args: { dog: Dog; price: number }) {
+  const { dog, price } = args;
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -58,33 +58,26 @@ export default function DogCard(args: { dog: Dog }) {
               transform: 'rotateY(180deg)', // Rotate the back side by 180 degrees
             }}
           >
-            <div className="flex flex-col text-white p-4 text-center h-full w-full">
-              <h2 className="font-bold text-2xl">{dog.name}</h2>
-              <div className="grid grid-cols-2 grid-rows-2 h-full gap-2 p-2">
-                <div className="border rounded border-gray-900">
-                  <div>
-                    {' '}
-                    <div className="text-xl font-bold">Id:</div> {dog.id}{' '}
-                  </div>
+            <div className="flex flex-col bg-gray-800 text-white p-4 rounded-lg shadow-lg text-center h-full w-full">
+              <h2 className="font-bold text-2xl mb-2">
+                {dog.name} - ${price} ETH
+              </h2>
+              <div className="grid grid-cols-2 grid-rows-2 h-full gap-4">
+                <div className="bg-gray-900 p-4 rounded-lg shadow-inner">
+                  <div className="text-xl font-semibold">Id:</div>
+                  <div className="text-lg">{dog.id}</div>
                 </div>
-                <div className="border rounded border-gray-900">
-                  <div>
-                    {' '}
-                    <div className="text-xl font-bold"> Age:</div> {dog.age}
-                  </div>
+                <div className="bg-gray-900 p-4 rounded-lg shadow-inner">
+                  <div className="text-xl font-semibold">Age:</div>
+                  <div className="text-lg">{dog.age}</div>
                 </div>
-                <div className="border rounded border-gray-900">
-                  <div>
-                    {' '}
-                    <div className="text-xl font-bold"> Breed: </div>{' '}
-                    {dog.breed}
-                  </div>
+                <div className="bg-gray-900 p-4 rounded-lg shadow-inner">
+                  <div className="text-xl font-semibold">Breed:</div>
+                  <div className="text-lg">{dog.breed}</div>
                 </div>
-                <div className="border rounded border-gray-900">
-                  <div>
-                    {' '}
-                    <div className="text-xl font-bold"> Sex: </div> {dog.sex}
-                  </div>
+                <div className="bg-gray-900 p-4 rounded-lg shadow-inner">
+                  <div className="text-xl font-semibold">Sex:</div>
+                  <div className="text-lg">{dog.sex}</div>
                 </div>
               </div>
             </div>

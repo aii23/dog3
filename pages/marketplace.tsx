@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Header } from '../components/header';
-import DogCard from '../components/dog_card';
+import SellDogCard from '../components/dog_card';
 import { Dog } from '../components/interfaces/Dog';
 import { mocked_dogs } from '../components/mock/mocked_data';
 import Footer from '../components/footer';
@@ -36,7 +36,7 @@ export default function Marketplace() {
             <div className="w-3/4">
               <div className={`grid grid-cols-5 gap-3`}>
                 {mocked_dogs.map((dog) => (
-                  <DogCard dog={dog} />
+                  <SellDogCard dog={dog} price={1} />
                 ))}
               </div>
             </div>
