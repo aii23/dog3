@@ -23,7 +23,7 @@ const LostDogsComponent = (args: { lostDogs: LostDogInfo[] }) => {
             <div className="w-48 h-32 relative rounded-lg overflow-hidden">
               <Image
                 src={dogInfo.dog.src}
-                alt={`${dogInfo.dog.age} - ${dogInfo.dog.breed}`}
+                alt={`${dogInfo.dog.name} - ${dogInfo.dog.age}`}
                 layout="fill"
                 objectFit="cover"
               />
@@ -31,7 +31,7 @@ const LostDogsComponent = (args: { lostDogs: LostDogInfo[] }) => {
           </Link>
           <div className="flex-1">
             <h2 className="font-semibold">
-              {`${dogInfo.dog.age} - ${dogInfo.dog.breed}`}
+              {`${dogInfo.dog.name} - ${dogInfo.dog.age}`}
             </h2>
             <p className="text-gray-400">{dogInfo.time}</p>
             <p className="text-gray-400">{dogInfo.location}</p>
@@ -57,7 +57,7 @@ const FoundDogsComponent = (args: { foundDogs: FoundDogInfo[] }) => {
             <div className="w-48 h-32 relative rounded-lg overflow-hidden">
               <Image
                 src={dogInfo.dog.src}
-                alt={`${dogInfo.dog.age} - ${dogInfo.dog.breed}`}
+                alt={`${dogInfo.dog.name} - ${dogInfo.dog.age}`}
                 layout="fill"
                 objectFit="cover"
               />
@@ -65,7 +65,7 @@ const FoundDogsComponent = (args: { foundDogs: FoundDogInfo[] }) => {
           </Link>
           <div className="flex-1">
             <h2 className="font-semibold">
-              {`${dogInfo.dog.age} - ${dogInfo.dog.breed}`}
+              {`${dogInfo.dog.name} - ${dogInfo.dog.age}`}
             </h2>
             <p className="text-gray-400">{dogInfo.time}</p>
             <p className="text-gray-400">{dogInfo.location}</p>

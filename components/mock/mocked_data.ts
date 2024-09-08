@@ -13,25 +13,50 @@ export const my_mocked_account: User = {
   src: '/me.png',
 };
 
+const dogNames: string[] = [
+  'Buddy',
+  'Bella',
+  'Charlie',
+  'Luna',
+  'Max',
+  'Lucy',
+  'Cooper',
+  'Daisy',
+  'Rocky',
+  'Molly',
+  'Bailey',
+  'Sadie',
+  'Toby',
+  'Maggie',
+  'Duke',
+  'Sophie',
+  'Jack',
+  'Chloe',
+  'Riley',
+  'Zoey',
+];
+
+export const my_dogs_breeds = ['Golden retriever', 'Border collie', 'Mops'];
+
 export const my_mocked_dogs: Dog[] = [...Array(3)].map((_, i) => {
   return {
     id: '90' + i, // Add the ID property
-    src: '/dog1.png',
-    name: 'g1',
+    src: `/dog${i + 1}.png`,
+    name: dogNames[i],
     age: '' + i,
-    breed: 'Unknown',
+    breed: my_dogs_breeds[i],
     color: 'Unknown',
     sex: 'male',
   };
 });
 
-export const mocked_dogs: Dog[] = [...Array(12)].map((_, i) => {
+export const mocked_dogs: Dog[] = [...Array(4)].map((_, i) => {
   return {
     id: '70' + i, // Add the ID property
-    src: '/dog1.png',
-    name: 'g1',
+    src: `/other_${i}.png`,
+    name: dogNames[i + my_mocked_dogs.length],
     age: '3',
-    breed: 'Unknown',
+    breed: 'Some',
     color: 'Unknown',
     sex: 'male',
   };
@@ -41,19 +66,19 @@ export const mocked_transactions: DogTransactionParams[] = [
   {
     date: '10/12/24',
     type: 'Vacination',
-    dog: 'Pupify #1',
+    dog: dogNames[0],
     description: 'Vacination 2',
   },
   {
     date: '11/10/24',
     type: 'Vacination',
-    dog: 'Pupify #1',
+    dog: dogNames[1],
     description: 'Vacination 1',
   },
   {
     date: '10/10/24',
     type: 'Purchase',
-    dog: 'Pupify #1',
+    dog: dogNames[3],
     description: 'Purchase',
   },
 ];
@@ -83,12 +108,6 @@ export const mocked_found_dogs: FoundDogInfo[] = [
     location: 'New York, NY',
     time: 'Found at 11:30am',
     foundBy: 'Peter Parker',
-  },
-  {
-    dog: mocked_dogs[4],
-    location: 'Hollywood, CA',
-    time: 'Found at 9:30am',
-    foundBy: 'Sam Wilson',
   },
 ];
 
