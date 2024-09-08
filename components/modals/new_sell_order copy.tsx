@@ -21,15 +21,17 @@ export default function NewSellOrderModal({
       setIsOpen={setIsOpen}
       apply={createSellOrder}
     >
-      <div className="grid grid-cols-2 gap-3">
-        <label>
-          Price:{' '}
+      <div className="grid grid-cols-1 gap-6 p-6 bg-gray-50 rounded-lg">
+        <div className="col-span-1">
+          <label className="block text-gray-700 font-semibold mb-2">
+            Price
+          </label>
           <input
-            className="text-black"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-        </label>
+        </div>
       </div>
     </Modal>
   );
